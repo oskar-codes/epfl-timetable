@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  color: white;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: monospace;
+  background: black;
+}
+
+h1, h2, h3, h4, h5, h6, span, p {
+  color: white;
+}
+
+#app {
+  height: 100%;
+  margin: 0;
+  padding-top: 20px;
+}
+
+#app > h1 {
+  text-align: center;
+}
+
+.courses {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.course {
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+.week {
+  border: 1px solid white;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.week.disabled:not(:hover) {
+  filter: opacity(0.7);
+}

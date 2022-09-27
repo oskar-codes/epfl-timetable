@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPFL BA1 TIMETABLE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    
+    <div id='app'>
+
+      <h1>EPFL BA1 TIMETABLE</h1>
+
+      <div class="week" v-for="(week, i) in weeks" :class="{ disabled: i !== currentWeek }">
+        <h1>WEEK {{ i + 1 }} ({{ week.courses.reduce((acc, v) => acc + v.tasks.reduce((acc, v) => acc + v.completed, 0), 0) }} / 10)</h1>
+
+        <div class="courses">
+          <div class="course" v-for="course in week.courses">
+            <h3>{{ course.name }}</h3>
+            <ul>
+              <li v-for="task in course.tasks">
+                <input type="checkbox" v-model="task.completed"  /> {{ task.name }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+    
+    <script src="app.js"></script>
+  </body>
+</html>
